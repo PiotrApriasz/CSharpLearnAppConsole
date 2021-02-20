@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using System;
+using Spectre.Console;
 
 namespace ConsoleUI
 {
@@ -7,22 +8,31 @@ namespace ConsoleUI
         /// <summary>
         /// Creates look and functionality of screen with sign in and sing up
         /// </summary>
-        internal static void HelloScreen()
+        internal static string HelloScreen()
         {
-           ElementsUI.ScreenTop();
+            Console.Clear();
+            ElementsUI.ScreenTop();
            
            var choice = AnsiConsole.Prompt(
                new SelectionPrompt<string>()
                    .Title("Welcome in my app!\n[Red]Sign in[/] or [Red]Sign up[/] if you are new user")
-                   .PageSize(3)
+                   .PageSize(4)
                    .AddChoice("Sign in")
                    .AddChoice("Sign up")
+                   .AddChoice("Exit")
                    );
+           return choice;
         }
 
+        /// <summary>
+        /// Creates look and functionality to perform sign up
+        /// </summary>
         internal static void SignUp()
         {
+            Console.Clear();
+            ElementsUI.ScreenTop();
             
+            var username = AnsiConsole.Ask<string>("# Enter your [green]username[/]");
         }
     }
 }

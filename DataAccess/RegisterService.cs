@@ -7,6 +7,11 @@ namespace DataAccess
 {
     public static class RegisterService
     {
+        /// <summary>
+        /// Saves user data in xml database in sign up process
+        /// </summary>
+        /// <param name="user">User object with all informations needed to perform sign up</param>
+        /// <returns></returns>
         public static bool SignUp(User user)
         {
             var xd = new XmlDocument();
