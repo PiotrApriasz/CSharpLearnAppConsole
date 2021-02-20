@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using ApplicationCore;
 using DataAccess;
 using Spectre.Console;
 
@@ -29,7 +30,7 @@ namespace ConsoleUI
         /// <summary>
         /// Creates look and functionality to perform sign up
         /// </summary>
-        internal static void SignUp()
+        internal static User SignUp()
         {
             Console.Clear();
             ElementsUI.ScreenTop();
@@ -60,6 +61,18 @@ namespace ConsoleUI
             ElementsUI.ScreenTop();
 
             var email = GetEmail();
+
+            //Create user object
+            var user = new User()
+            {
+                Username = username,
+                Password = password,
+                Name = name,
+                LastName = lastName,
+                Email = email
+            };
+
+            return user;
         }
 
         #region SignUp functions
