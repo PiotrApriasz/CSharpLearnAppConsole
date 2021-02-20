@@ -46,5 +46,32 @@ namespace DataAccess
 
             return true;
         }
+        
+        /// <summary>
+        /// Checks if in data base is the user with the same login as new user want
+        /// </summary>
+        /// <param name="login">Login which new user want to register</param>
+        /// <returns></returns>
+        public static bool IsLoginSameAsRegisteredBefore(string login)
+        {
+            var xdoc = new XmlDocument();
+            var up = new FileStream("/ProjektyC#/CSharpLearnPathConsole/CSharpLearnPathData.xml", FileMode.Open);
+            xdoc.Load(up);
+            XmlNodeList list = xdoc.GetElementsByTagName("User");
+
+            for (int i = 0; i < list.Count; i++) 
+            {
+                XmlElement cu = (XmlElement) xdoc.GetElementsByTagName("User")[i];
+
+                if (cu?.GetAttribute("Login") == login)
+                {
+                    up.Close();
+                    return true;
+                }
+            }
+
+            up.Close();
+            return false;
+        }
     }
 }

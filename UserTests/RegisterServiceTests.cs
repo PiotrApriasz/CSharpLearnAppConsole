@@ -11,7 +11,7 @@ namespace UserTests
         {
         }
 
-        [Test]
+        /*[Test]
         public void SignUpTest()
         {
             var user = new User()
@@ -26,6 +26,16 @@ namespace UserTests
             var register = RegisterService.SignUp(user);
             
             Assert.IsTrue(register);
+        }*/
+        
+        [Test]
+        public void IsLoginSameAsRegisteredBeforeTest()
+        {
+            var login = "piotrek";
+
+            var actual = RegisterService.IsLoginSameAsRegisteredBefore(login);
+            
+            Assert.IsTrue(actual);
         }
     }
 }
