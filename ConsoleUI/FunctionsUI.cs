@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using DataAccess;
 using Spectre.Console;
 
@@ -71,15 +72,35 @@ namespace ConsoleUI
                 else break;
             }
             
+            // Get user's name
             Console.Clear();
             ElementsUI.ScreenTop();
             
             var name = AnsiConsole.Ask<string>("Enter your [green]name[/]");
             
+            // Get user's last name
             Console.Clear();
             ElementsUI.ScreenTop();
             
             var lastName = AnsiConsole.Ask<string>("Enter your [green]last name[/]");
+            
+            // Get user's email
+            Console.Clear();
+            ElementsUI.ScreenTop();
+
+            while (true)
+            {
+                var email = AnsiConsole.Ask<string>("Enter your [green]email[/]");
+
+                if (!Regex.IsMatch(email,
+                    @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Incorrect email!\n\n[/]");
+                }
+                else break;
+            }
         }
     }
 }
