@@ -7,7 +7,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            AnsiConsole.Markup("[underline red]Hello[/] World!");
+            Console.Clear();
+            
+            ElementsUI.LineDown();
         }
     }
 }
