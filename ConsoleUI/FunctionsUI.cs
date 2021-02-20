@@ -1,4 +1,5 @@
 ﻿using System;
+using DataAccess;
 using Spectre.Console;
 
 namespace ConsoleUI
@@ -32,7 +33,21 @@ namespace ConsoleUI
             Console.Clear();
             ElementsUI.ScreenTop();
             
-            var username = AnsiConsole.Ask<string>("# Enter your [green]username[/]");
+            while (true)
+            {
+                var username = AnsiConsole.Ask<string>("# Enter your [green]username[/]");
+
+                if (RegisterService.IsLoginSameAsRegisteredBefore(username))
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Login {username} already exists!\n\n[/]");
+                }
+                else break;
+            }
+
+            
+            
         }
     }
 }
