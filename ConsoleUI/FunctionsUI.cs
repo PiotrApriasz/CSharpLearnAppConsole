@@ -35,42 +35,13 @@ namespace ConsoleUI
             ElementsUI.ScreenTop();
             
             // Get username
-            while (true)
-            {
-                var username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
-
-                if (RegisterService.IsLoginSameAsRegisteredBefore(username))
-                {
-                    Console.Clear();
-                    ElementsUI.ScreenTop();
-                    AnsiConsole.Markup($"[underline red]Login {username} already exists!\n\n[/]");
-                }
-                else break;
-            }
+            var username = GetUsername();
 
             Console.Clear();
             ElementsUI.ScreenTop();
 
             // Get password
-            while (true)
-            {
-                var password = AnsiConsole.Prompt(
-                    new TextPrompt<string>("Enter [green]password[/]").Secret());
-
-                Console.WriteLine();
-                Console.WriteLine();
-                
-                var passwordAgain = AnsiConsole.Prompt(
-                    new TextPrompt<string>("Enter [green]password[/] again").Secret());
-
-                if (password != passwordAgain)
-                {
-                    Console.Clear();
-                    ElementsUI.ScreenTop();
-                    AnsiConsole.Markup($"[underline red]Passwords are different!\n\n[/]");
-                }
-                else break;
-            }
+            var password = GetPassword();
             
             // Get user's name
             Console.Clear();
@@ -88,9 +59,19 @@ namespace ConsoleUI
             Console.Clear();
             ElementsUI.ScreenTop();
 
+            var email = GetEmail();
+        }
+
+        /// <summary>
+        /// Get email from user
+        /// </summary>
+        /// <returns></returns>
+        private static string GetEmail()
+        {
+            string email;
             while (true)
             {
-                var email = AnsiConsole.Ask<string>("Enter your [green]email[/]");
+                email = AnsiConsole.Ask<string>("Enter your [green]email[/]");
 
                 if (!Regex.IsMatch(email,
                     @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
@@ -101,6 +82,61 @@ namespace ConsoleUI
                 }
                 else break;
             }
+
+            return email;
+        }
+
+        /// <summary>
+        /// Get password from user
+        /// </summary>
+        /// <returns></returns>
+        private static string GetPassword()
+        {
+            string password;
+            while (true)
+            {
+                password = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/]").Secret());
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+                var passwordAgain = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/] again").Secret());
+
+                if (password != passwordAgain)
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Passwords are different!\n\n[/]");
+                }
+                else break;
+            }
+
+            return password;
+        }
+
+        /// <summary>
+        /// Get username from user
+        /// </summary>
+        /// <returns></returns>
+        private static string GetUsername()
+        {
+            string username;
+            while (true)
+            {
+                username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
+
+                if (RegisterService.IsLoginSameAsRegisteredBefore(username))
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Login {username} already exists!\n\n[/]");
+                }
+                else break;
+            }
+
+            return username;
         }
     }
 }
