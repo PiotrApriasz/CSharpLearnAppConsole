@@ -36,13 +36,13 @@ namespace ConsoleUI
             ElementsUI.ScreenTop();
             
             // Get username
-            var username = GetUsername();
+            var username = GetUsernameUp();
 
             Console.Clear();
             ElementsUI.ScreenTop();
 
             // Get password
-            var password = GetPassword();
+            var password = GetPasswordUp();
             
             // Get user's name
             Console.Clear();
@@ -75,6 +75,21 @@ namespace ConsoleUI
             return user;
         }
 
+        /// <summary>
+        /// Creates look and functionality to perform sign in
+        /// </summary>
+        /// <returns></returns>
+        internal static User SignIn()
+        {
+            Console.Clear();
+            ElementsUI.ScreenTop();
+
+            while (true)
+            {
+                var username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
+            }
+        }
+
         #region SignUp functions
 
         /// <summary>
@@ -105,7 +120,7 @@ namespace ConsoleUI
         /// Get password from user
         /// </summary>
         /// <returns></returns>
-        private static string GetPassword()
+        private static string GetPasswordUp()
         {
             string password;
             while (true)
@@ -135,7 +150,7 @@ namespace ConsoleUI
         /// Get username from user
         /// </summary>
         /// <returns></returns>
-        private static string GetUsername()
+        private static string GetUsernameUp()
         {
             string username;
             while (true)

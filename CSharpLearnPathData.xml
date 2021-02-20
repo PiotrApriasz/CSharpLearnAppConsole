@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿f<?xml version="1.0" encoding="utf-8"?>
 <UserDetails>
   <User Login="piotrek">
     <Password>123</Password>
     <Name>Piotr</Name>
     <LastName>Apriasz</LastName>
     <Email>demik534@gmail.com</Email>
+  </User>
+  <User Login="alusska">
+    <Password>placki</Password>
+    <Name>Alicja</Name>
+    <LastName>Biel</LastName>
+    <Email>alusska@gmail.com</Email>
   </User>
 </UserDetails>
