@@ -9,7 +9,7 @@ namespace ConsoleUI
         {
             Console.Clear();
             
-            ElementsUI.LineDown();
+            FunctionsUI.HelloScreen();
         }
     }
 }

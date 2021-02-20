@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserDetails>
+  <User Login="piotrek">
+    <Password>123</Password>
+    <Name>Piotr</Name>
+    <LastName>Apriasz</LastName>
+    <Email>demik534@gmail.com</Email>
+  </User>
+</UserDetails>
