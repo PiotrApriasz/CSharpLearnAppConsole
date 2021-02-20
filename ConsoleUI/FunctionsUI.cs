@@ -33,6 +33,7 @@ namespace ConsoleUI
             Console.Clear();
             ElementsUI.ScreenTop();
             
+            // Get username
             while (true)
             {
                 var username = AnsiConsole.Ask<string>("# Enter your [green]username[/]");
@@ -46,8 +47,29 @@ namespace ConsoleUI
                 else break;
             }
 
-            
-            
+            Console.Clear();
+            ElementsUI.ScreenTop();
+
+            // Get password
+            while (true)
+            {
+                var password = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/]").Secret());
+
+                Console.WriteLine();
+                Console.WriteLine();
+                
+                var passwordAgain = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/] again").Secret());
+
+                if (password != passwordAgain)
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Passwords are different!\n\n[/]");
+                }
+                else break;
+            }
         }
     }
 }
