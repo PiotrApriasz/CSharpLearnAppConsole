@@ -62,6 +62,8 @@ namespace ConsoleUI
             var email = GetEmail();
         }
 
+        #region SignUp functions
+
         /// <summary>
         /// Get email from user
         /// </summary>
@@ -138,5 +140,7 @@ namespace ConsoleUI
 
             return username;
         }
+
+        #endregion
     }
 }
