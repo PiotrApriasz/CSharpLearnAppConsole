@@ -36,7 +36,7 @@ namespace ConsoleUI
             // Get username
             while (true)
             {
-                var username = AnsiConsole.Ask<string>("# Enter your [green]username[/]");
+                var username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
 
                 if (RegisterService.IsLoginSameAsRegisteredBefore(username))
                 {
@@ -70,6 +70,16 @@ namespace ConsoleUI
                 }
                 else break;
             }
+            
+            Console.Clear();
+            ElementsUI.ScreenTop();
+            
+            var name = AnsiConsole.Ask<string>("Enter your [green]name[/]");
+            
+            Console.Clear();
+            ElementsUI.ScreenTop();
+            
+            var lastName = AnsiConsole.Ask<string>("Enter your [green]last name[/]");
         }
     }
 }
