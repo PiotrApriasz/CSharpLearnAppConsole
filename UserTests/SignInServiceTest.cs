@@ -27,5 +27,21 @@ namespace UserTests
             
             Assert.IsNull(actual);
         }
+        
+        [Test]
+        public void FindUserNullCorrectUsername_Test()
+        {
+            var actual = SignInService.FindUser("piotrek", "incorrect");
+            
+            Assert.IsNull(actual);
+        }
+        
+        [Test]
+        public void FindUserNullCorrectPassword_Test()
+        {
+            var actual = SignInService.FindUser("incorrect", "123");
+            
+            Assert.IsNull(actual);
+        }
     }
 }
