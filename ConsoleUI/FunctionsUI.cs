@@ -95,20 +95,27 @@ namespace ConsoleUI
                 var password = AnsiConsole.Prompt(
                     new TextPrompt<string>("Enter [green]password[/]").Secret());
 
-                if (SignInService.FindUser(username, password))
+                User user = SignInService.FindUser(username, password);
+
+                if (user != null)
                 {
                     Console.Clear();
                     ElementsUI.ScreenTop();
                     AnsiConsole.Markup($"[underline green]User {username} found!\n\n[/]");
-                    
+                    AnsiConsole.Markup($"[underline]To continue click any key![/]");
+                    Console.ReadKey();
+
                 }
                 else
                 {
                     Console.Clear();
                     ElementsUI.ScreenTop();
                     AnsiConsole.Markup($"[underline red]Login {username} not found!\n\n[/]");
+                    AnsiConsole.Markup($"[underline]To continue click any key![/]");
+                    Console.ReadKey();
                 }
 
+                return user;
             }
         }
 
