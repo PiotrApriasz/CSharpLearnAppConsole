@@ -19,5 +19,13 @@ namespace UserTests
                 Assert.AreEqual("demik534@gmail.com", actual.Email);
             }));
         }
+
+        [Test]
+        public void FindUserNull_Test()
+        {
+            var actual = SignInService.FindUser("incorrect", "incorrect");
+            
+            Assert.IsNull(actual);
+        }
     }
 }
