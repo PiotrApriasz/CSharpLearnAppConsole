@@ -84,9 +84,31 @@ namespace ConsoleUI
             Console.Clear();
             ElementsUI.ScreenTop();
 
+            // Get username
             while (true)
             {
                 var username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
+                
+                Console.Clear();
+                ElementsUI.ScreenTop();
+                
+                var password = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/]").Secret());
+
+                if (SignInService.FindUsername(username, password))
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline green]User {username} found!\n\n[/]");
+                    
+                }
+                else
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Login {username} not found!\n\n[/]");
+                }
+
             }
         }
 

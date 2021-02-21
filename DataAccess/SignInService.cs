@@ -9,9 +9,13 @@ namespace DataAccess
         /// Checks if in data base is login which user want to sign in by
         /// </summary>
         /// <param name="username"></param>
+        /// <param name="password"></param>
         /// <returns></returns>
-        public static bool FindUsername(string username)
+        public static bool FindUsername(string username, string password)
         {
+            var foundLogin = false;
+            var foundPassword = false;
+            
             var xdoc = new XmlDocument();
             var up = new FileStream("/ProjektyC#/CSharpLearnPathConsole/CSharpLearnPathData.xml", FileMode.Open);
             xdoc.Load(up);
@@ -23,13 +27,14 @@ namespace DataAccess
 
                 if (cu?.GetAttribute("Login") == username)
                 {
-                    up.Close();
-                    return true;
+                    foundLogin = true;
+                    XmlElement pass = (XmlElement) xdoc.GetElementsByTagName("Password")[i];
+                    if (pass?.InnerText == password) foundPassword = true;
                 }
             }
 
             up.Close();
-            return false;
+            return foundLogin && foundPassword;
         }
     }
 }
