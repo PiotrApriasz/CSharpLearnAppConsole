@@ -6,4 +6,10 @@
     <LastName>Apriasz</LastName>
     <Email>demik534@gmail.com</Email>
   </User>
+  <User Login="alusska">
+    <Password>placki</Password>
+    <Name>Alicja</Name>
+    <LastName>Biel</LastName>
+    <Email>alusska@gmail.com</Email>
+  </User>
 </UserDetails>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Mime;
+using DataAccess;
 using Spectre.Console;
 
 namespace ConsoleUI
@@ -17,7 +18,7 @@ namespace ConsoleUI
                     case "Sign in":
                         break;
                     case "Sign up":
-                        FunctionsUI.SignUp();
+                        RegisterService.SignUp(FunctionsUI.SignUp());
                         break;
                     case "Exit":
                         Environment.Exit(0);

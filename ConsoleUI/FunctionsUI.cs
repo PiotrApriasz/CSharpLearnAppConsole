@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using ApplicationCore;
 using DataAccess;
 using Spectre.Console;
 
@@ -29,19 +30,19 @@ namespace ConsoleUI
         /// <summary>
         /// Creates look and functionality to perform sign up
         /// </summary>
-        internal static void SignUp()
+        internal static User SignUp()
         {
             Console.Clear();
             ElementsUI.ScreenTop();
             
             // Get username
-            var username = GetUsername();
+            var username = GetUsernameUp();
 
             Console.Clear();
             ElementsUI.ScreenTop();
 
             // Get password
-            var password = GetPassword();
+            var password = GetPasswordUp();
             
             // Get user's name
             Console.Clear();
@@ -60,6 +61,55 @@ namespace ConsoleUI
             ElementsUI.ScreenTop();
 
             var email = GetEmail();
+
+            //Create user object
+            var user = new User()
+            {
+                Username = username,
+                Password = password,
+                Name = name,
+                LastName = lastName,
+                Email = email
+            };
+
+            return user;
+        }
+
+        /// <summary>
+        /// Creates look and functionality to perform sign in
+        /// </summary>
+        /// <returns></returns>
+        internal static User SignIn()
+        {
+            Console.Clear();
+            ElementsUI.ScreenTop();
+
+            // Get username
+            while (true)
+            {
+                var username = AnsiConsole.Ask<string>("Enter your [green]username[/]");
+                
+                Console.Clear();
+                ElementsUI.ScreenTop();
+                
+                var password = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter [green]password[/]").Secret());
+
+                if (SignInService.FindUser(username, password))
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline green]User {username} found!\n\n[/]");
+                    
+                }
+                else
+                {
+                    Console.Clear();
+                    ElementsUI.ScreenTop();
+                    AnsiConsole.Markup($"[underline red]Login {username} not found!\n\n[/]");
+                }
+
+            }
         }
 
         #region SignUp functions
@@ -92,7 +142,7 @@ namespace ConsoleUI
         /// Get password from user
         /// </summary>
         /// <returns></returns>
-        private static string GetPassword()
+        private static string GetPasswordUp()
         {
             string password;
             while (true)
@@ -122,7 +172,7 @@ namespace ConsoleUI
         /// Get username from user
         /// </summary>
         /// <returns></returns>
-        private static string GetUsername()
+        private static string GetUsernameUp()
         {
             string username;
             while (true)
