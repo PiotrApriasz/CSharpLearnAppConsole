@@ -16,6 +16,7 @@ namespace ConsoleUI
                 switch (choice)
                 {
                     case "Sign in":
+                        FunctionsUI.SignIn();
                         break;
                     case "Sign up":
                         RegisterService.SignUp(FunctionsUI.SignUp());
