@@ -95,7 +95,7 @@ namespace ConsoleUI
                 var password = AnsiConsole.Prompt(
                     new TextPrompt<string>("Enter [green]password[/]").Secret());
 
-                if (SignInService.FindUsername(username, password))
+                if (SignInService.FindUser(username, password))
                 {
                     Console.Clear();
                     ElementsUI.ScreenTop();

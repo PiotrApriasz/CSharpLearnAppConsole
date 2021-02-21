@@ -11,7 +11,7 @@ namespace DataAccess
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool FindUsername(string username, string password)
+        public static bool FindUser(string username, string password)
         {
             var foundLogin = false;
             var foundPassword = false;
