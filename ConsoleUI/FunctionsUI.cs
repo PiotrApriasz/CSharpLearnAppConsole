@@ -28,6 +28,28 @@ namespace ConsoleUI
         }
 
         /// <summary>
+        /// Creates look and functionality of main screen
+        /// </summary>
+        /// <param name="user">Signed in user</param>
+        /// <returns></returns>
+        internal static string MainScreen(User user)
+        {
+            Console.Clear();
+            ElementsUI.ScreenTop();
+            
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title($"Hello [green]{user.Name}[/]")
+                    .PageSize(5)
+                    .AddChoice("Learn Path")
+                    .AddChoice("Notes")
+                    .AddChoice("TO DO")
+                    .AddChoice("Log out")
+            );
+            return choice;
+        }
+
+        /// <summary>
         /// Creates look and functionality to perform sign up
         /// </summary>
         internal static User SignUp()
