@@ -40,6 +40,14 @@ namespace DataAccess
             na4.AppendChild(na4Text);
             cl.AppendChild(na4);
             
+            XmlElement na5 = xd.CreateElement("LearnPaths");
+            cl.AppendChild(na5);
+            
+            XmlElement na6 = xd.CreateElement("Notes");
+            cl.AppendChild(na6);
+            
+            XmlElement na7 = xd.CreateElement("TODOs");
+            cl.AppendChild(na7);
 
             xd?.DocumentElement?.AppendChild(cl);
             lfile.Close();
