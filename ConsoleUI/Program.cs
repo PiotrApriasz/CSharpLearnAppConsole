@@ -20,7 +20,8 @@ namespace ConsoleUI
 
                         if (user != null)
                         {
-                            FunctionsUI.MainScreen(user);
+                            var session = new Session(user);
+                            session.SelectScreen();
                         }
                         break;
                     case "Sign up":

@@ -1,5 +1,6 @@
 ﻿using System;
 using ApplicationCore;
+using Spectre.Console;
 
 namespace ConsoleUI
 {
@@ -22,7 +23,18 @@ namespace ConsoleUI
 
         #region Methods
 
-        
+        /// <summary>
+        /// Functionality to make user choose what to do after sign in
+        /// </summary>
+        public void SelectScreen()
+        {
+            Console.Clear();
+            ElementsUI.ScreenTop();
+            
+            AnsiConsole.Markup($"Hello [green]{User.Name}![/]\n");
+
+            var choice = FunctionsUI.MainScreen();
+        }
 
         #endregion
     }

@@ -30,16 +30,12 @@ namespace ConsoleUI
         /// <summary>
         /// Creates look and functionality of main screen
         /// </summary>
-        /// <param name="user">Signed in user</param>
-        /// <returns></returns>
-        internal static string MainScreen(User user)
+        /// <returns>Next screen user choice</returns>
+        internal static string MainScreen()
         {
-            Console.Clear();
-            ElementsUI.ScreenTop();
-            
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title($"Hello [green]{user.Name}[/]")
+                    .Title($"Choose what you want to do")
                     .PageSize(5)
                     .AddChoice("Learn Path")
                     .AddChoice("Notes")
