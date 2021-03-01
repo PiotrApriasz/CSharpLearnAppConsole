@@ -101,7 +101,7 @@ namespace ConsoleUI
                 {
                     Console.Clear();
                     ElementsUI.ScreenTop();
-                    AnsiConsole.Markup($"[underline green]User {username} found!\n\n[/]");
+                    AnsiConsole.Markup($"[underline green]User {username} signed in!\n\n[/]");
                     AnsiConsole.Markup($"[underline]To continue click any key![/]");
                     Console.ReadKey();
 
@@ -110,7 +110,7 @@ namespace ConsoleUI
                 {
                     Console.Clear();
                     ElementsUI.ScreenTop();
-                    AnsiConsole.Markup($"[underline red]Login {username} not found!\n\n[/]");
+                    AnsiConsole.Markup($"[underline red]Invalid username or password!\n\n[/]");
                     AnsiConsole.Markup($"[underline]To continue click any key![/]");
                     Console.ReadKey();
                 }

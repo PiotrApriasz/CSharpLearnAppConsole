@@ -4,12 +4,24 @@
     <Password>123</Password>
     <Name>Piotr</Name>
     <LastName>Apriasz</LastName>
-    <Email>demik534@gmail.com</Email>
+    <Email>email@gmail.com</Email>
   </User>
   <User Login="alusska">
     <Password>placki</Password>
     <Name>Alicja</Name>
-    <LastName>Biel</LastName>
-    <Email>alusska@gmail.com</Email>
+    <LastName>Biernacka</LastName>
+    <Email>bier@gmail.com</Email>
+  </User>
+  <User Login="user1">
+    <Password>pass</Password>
+    <Name>User</Name>
+    <LastName>One</LastName>
+    <Email>user@gmail.com</Email>
+  </User>
+  <User Login="alicja">
+    <Password>placki</Password>
+    <Name>alicja</Name>
+    <LastName>plackowa</LastName>
+    <Email>alicja@super.net</Email>
   </User>
 </UserDetails>

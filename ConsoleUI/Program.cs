@@ -16,7 +16,12 @@ namespace ConsoleUI
                 switch (choice)
                 {
                     case "Sign in":
-                        FunctionsUI.SignIn();
+                        var user = FunctionsUI.SignIn();
+
+                        if (user != null)
+                        {
+                            
+                        }
                         break;
                     case "Sign up":
                         RegisterService.SignUp(FunctionsUI.SignUp());
@@ -24,11 +29,8 @@ namespace ConsoleUI
                     case "Exit":
                         Environment.Exit(0);
                         break;
-                    default:
-                        break;
                 }
             }
-            
         }
     }
 }
