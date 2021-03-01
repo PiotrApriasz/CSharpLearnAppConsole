@@ -39,6 +39,7 @@ namespace DataAccess
             XmlText na4Text = xd.CreateTextNode(user.Email);
             na4.AppendChild(na4Text);
             cl.AppendChild(na4);
+            
 
             xd?.DocumentElement?.AppendChild(cl);
             lfile.Close();
